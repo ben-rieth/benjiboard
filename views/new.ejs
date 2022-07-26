@@ -2,6 +2,15 @@
 <html lang="en">
     <%- include('./partials/head') %> 
     <body>
-        <h1>New</h1>
+        <form action="/new" method="POST">
+
+            <label for="user">Who is Writing this Message?</label>
+            <input type="text" name="user" id="user" />
+
+            <label for="message">Your Message</label>
+            <textarea name="message" id="message"></textarea>
+
+            <button>Submit Your Message!</button>
+        </form>
     </body>
 </html>
