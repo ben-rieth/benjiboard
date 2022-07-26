@@ -2,6 +2,17 @@
 <html lang="en">
     <%- include('./partials/head') %> 
     <body>
-        <h1>Let's Go!!</h1>
+        <main>
+            <% messages.forEach((message) => { %>
+
+                <article>
+                    <h3>From: <%= message.user %></h3>
+                    <p>Added: <%= message.added %></p>
+                    <hr />
+                    <p><%= message.text %></p>
+                </article>
+
+            <% }) %>
+        </main>
     </body>
 </html>
