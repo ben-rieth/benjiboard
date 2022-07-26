@@ -14,6 +14,9 @@ app.set('view engine', 'ejs');
 //set up logging using Morgan
 app.use(logger('dev'));
 
+//set up basic express middleware
+app.use(express.urlencoded({ extended: true }))
+
 //add routes to the app
 app.use('/', indexRoutes);
 app.use('/new', newRoutes);
