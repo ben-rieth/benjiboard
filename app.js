@@ -24,6 +24,7 @@ app.use(logger('dev'));
 
 //set up basic express middleware
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'public')));
 
 //add routes to the app
 app.use('/', indexRoutes);
