@@ -2,6 +2,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 const express = require("express");
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
 const indexRoutes = require('./routes/index');
 const newRoutes = require('./routes/new')
@@ -9,7 +10,7 @@ const newRoutes = require('./routes/new')
 dotenv.config();
 const app = express();
 
-const dbURI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@nodetest.nnpon.mongodb.net/message-board?retryWrites=true&w=majority`
+const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@nodetest.nnpon.mongodb.net/message-board?retryWrites=true&w=majority`
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error'));
