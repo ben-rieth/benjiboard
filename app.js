@@ -10,7 +10,7 @@ const newRoutes = require('./routes/new')
 dotenv.config();
 const app = express();
 
-const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@nodetest.nnpon.mongodb.net/message-board?retryWrites=true&w=majority`
+const dbURI = process.env.MONGODB_URI;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error'));
