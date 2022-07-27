@@ -1,20 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const messages = [
-    {
-        text: 'Hello there!',
-        user: 'Benji',
-        added: new Date()
-    },
-    {
-        text: 'Another message',
-        user: 'Alison',
-        added: new Date()
+const Message = require('./../models/message');
+
+router.get('/', async (_req, res) => {
+    try {
+        const messages = await Message.find().sort({ createdAt: -1});
+        res.render('index', {title: "Home", messages});
+    } catch(err) {
+        res.render('error', {title: 'Error', error: error.message})
     }
-]
-router.get('/', (_req, res) => {
-    res.render('index', {title: "Home", messages});
+    
 });
 
 module.exports = router;

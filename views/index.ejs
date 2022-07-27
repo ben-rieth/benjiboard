@@ -3,16 +3,20 @@
     <%- include('./partials/head') %> 
     <body>
         <main>
-            <% messages.forEach((message) => { %>
+            <% if (messages.length === 0) { %> 
+                <h3>No messages to display</h3>
+            <% } else { %> 
+                <% messages.forEach((message) => { %>
 
-                <article>
-                    <h3>From: <%= message.user %></h3>
-                    <p>Added: <%= message.added %></p>
-                    <hr />
-                    <p><%= message.text %></p>
-                </article>
+                    <article>
+                        <h3>From: <%= message.author %></h3>
+                        <p>Added: <%= message.createdAt %></p>
+                        <hr />
+                        <p><%= message.text %></p>
+                    </article>
 
-            <% }) %>
+                <% }) %>
+            <% } %>
         </main>
     </body>
 </html>
