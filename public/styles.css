@@ -30,6 +30,10 @@ article > .message-header {
     gap: 5px;
 }
 
+article > hr {
+    margin-bottom: 3px;
+}
+
 /* Add New Message styles */
 form {
     display: flex;
