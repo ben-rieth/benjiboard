@@ -12,10 +12,10 @@
                     <article>
                         <div class="message-header">
                             <h3>From: <%= message.author %></h3>
-                            <p>Added: <%= message.time %></p>
+                            <p><%= message.time %></p>
                         </div>
                         <hr />
-                        <p><%= message.text %></p>
+                        <p class="message-text"><%= message.text %></p>
                     </article>
 
                 <% }) %>
