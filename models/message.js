@@ -12,4 +12,8 @@ const messageSchema = new Schema({
     }
 }, {timestamps: true});
 
+messageSchema.virtual('time').get(function() {
+    return `${this.updatedAt.toLocaleDateString()} ${this.updatedAt.toLocaleTimeString()}`
+});
+
 module.exports = mongoose.model('Message', messageSchema);
